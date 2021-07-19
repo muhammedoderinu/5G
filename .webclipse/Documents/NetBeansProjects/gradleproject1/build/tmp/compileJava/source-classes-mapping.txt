@@ -1,0 +1,5 @@
+gradleproject1/OpenBrowser.java
+ gradleproject1.OpenBrowser
+gradleproject1/Browser.java
+ gradleproject1.Browser
+ gradleproject1.Browser$1
