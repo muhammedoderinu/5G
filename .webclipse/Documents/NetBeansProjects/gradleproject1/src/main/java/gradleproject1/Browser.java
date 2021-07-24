@@ -19,24 +19,28 @@ import javax.swing.JTextField;
  */
 public class Browser {
 
-    /**
+    /*
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         JFrame frame = new JFrame();
 		JPanel panel = new JPanel();
 		final JTextField url = new JTextField(20);
+                final JTextField proxy = new JTextField(20);
 		JButton button = new JButton("Open Browser");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-                            for(int i=0; i<5;i++){
-				OpenBrowser.openURL(url.getText().trim());
-                            }
+                            
+				OpenBrowser.openURL(url.getText().trim(),
+                                        proxy.getText().trim());
+                            
 			}
 		});
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		panel.add(new JLabel("URL:"));
 		panel.add(url);
+                panel.add(new JLabel("Proxy:"));
+                panel.add(proxy);
 		panel.add(button);
 		frame.getContentPane().add(panel);
 		frame.pack();
