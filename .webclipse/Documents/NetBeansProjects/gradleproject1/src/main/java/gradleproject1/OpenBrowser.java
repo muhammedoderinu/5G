@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import java.net.*;
 import java.util.*;
 import java.io.*;
+import java.net.ProxySelector;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -24,23 +25,23 @@ public class OpenBrowser {
                 
 		try {
                     
-                   if(!proxy.isEmpty()){
-                     System.getProperties().put("Http.proxyHost",proxy);
-                       }
+                   
 			if (osName.startsWith("Windows")){
                             p= Runtime.getRuntime().exec(
 						"rundll32 url.dll,FileProtocolHandler " + url);
+                            
                           for(int i=0;i<15;i++){
                               Proxy prox = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(proxy, 8080));
                              URLConnection conn = new URL(url).openConnection(prox);
+                             //conn.connect();
                          //URL myURL = new URL(url);
                       //URLConnection myURLConnection = myURL.openConnection();
                         //try (InputStream is = myURLConnection.getInputStream()) {}
                             }
                             
 			
-                        TimeUnit.SECONDS.sleep(30);
-                        p.destroyForcibly();
+                        
+                        
                                     
                         
                         }else {
@@ -74,5 +75,7 @@ public class OpenBrowser {
               
                
 	}
+     
+   
     
 }
